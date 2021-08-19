@@ -10,7 +10,7 @@ namespace ConsoleApp1
             //Variables
             int userChoice;
             //Constants
-            const int ADD_PERSON_DATA = 1, EXIT = 0,TOP_TWO_RECORDS=2,AGE_BETWEEN13TO18=3, SHOW_ALL_DATA = 8;
+            const int ADD_PERSON_DATA = 1, EXIT = 0,TOP_TWO_RECORDS=2,AGE_BETWEEN13TO18=3,AVERAGE_AGE=4, SHOW_ALL_DATA = 8;
             List<PersonModel> list = new List<PersonModel>();
             while (true)
             {
@@ -18,6 +18,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Press 1 : Add new person data");
                 Console.WriteLine("Press 2 : Retrive top 2 records from list age below 60");
                 Console.WriteLine("Press 3 : All Record for age between 13 to 18");
+                Console.WriteLine("Press 4 : Retrive Average age");
                 Console.WriteLine("Press 8 : Show all person data");
                 Console.WriteLine("Press 0 : To Exit");
                 Console.WriteLine("................................................");
@@ -42,6 +43,10 @@ namespace ConsoleApp1
                     case AGE_BETWEEN13TO18:
                         DataManagement recordBetween = new DataManagement();
                         recordBetween.RecordAgeBetween13To18(list);
+                        break;
+                    case AVERAGE_AGE:
+                        DataManagement averageAge = new DataManagement();
+                        averageAge.RetrieveAverageAge(list);
                         break;
                     default:
                         Console.WriteLine("Enter a right choice");

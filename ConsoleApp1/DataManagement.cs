@@ -71,6 +71,26 @@ namespace ConsoleApp1
                 Console.WriteLine(".............Record is empty.............");
         }
         /// <summary>
+        /// Show average age of list
+        /// </summary>
+        /// <param name="list"></param>
+        public void RetrieveAverageAge(List<PersonModel> list)
+        {
+            if (list.Count > 0)
+            {
+                double totalAge=0;
+                var data = list.Where(x => x.Age >= 0);
+                foreach(var age in data)
+                {
+                    totalAge += age.Age;
+                }
+                Console.WriteLine("..........Average Age.........");
+                Console.WriteLine("Average Age :"+totalAge / list.Count);
+            }
+            else
+                Console.WriteLine(".............Record is empty.............");
+        }
+        /// <summary>
         /// Show data of all person
         /// </summary>
         /// <param name="list"></param>
