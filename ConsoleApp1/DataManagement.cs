@@ -135,6 +135,41 @@ namespace ConsoleApp1
                 Console.WriteLine(".............Record is empty.............");
         }
         /// <summary>
+        /// Delete specific name record from list if found
+        /// </summary>
+        /// <param name="list"></param>
+        public void RemoveSpecificName(List<PersonModel> list)
+        {
+            if (list.Count > 0)
+            {
+                bool checkDelete = true;
+                Console.WriteLine(".........Remove Specific Name...........");
+                Console.WriteLine("Enter a Person name to remove form list");
+                string personName = Console.ReadLine();
+                List<PersonModel> tempDeleteList = new List<PersonModel>();
+                var data = list.Where(x => x.Name.Equals(personName));
+                foreach (var age in data)
+                {
+                    tempDeleteList.Add(age);
+                }               
+                foreach (PersonModel temp in tempDeleteList)
+                {
+                    if (temp.Name.Equals(personName))
+                    {
+                        list.Remove(temp);
+                        checkDelete = false;
+                        break;
+                    }
+                }
+                if (checkDelete)
+                    Console.WriteLine("........Given Person name not present in list.........");
+                else
+                    Console.WriteLine(".........Person name deleted successfully from list.............");
+            }
+            else
+                Console.WriteLine(".............Record is empty.............");
+        }
+        /// <summary>
         /// Show data of all person
         /// </summary>
         /// <param name="list"></param>
