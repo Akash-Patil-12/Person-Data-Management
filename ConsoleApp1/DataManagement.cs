@@ -111,6 +111,30 @@ namespace ConsoleApp1
                 Console.WriteLine(".............Record is empty.............");
         }
         /// <summary>
+        /// Skip record from list whose age below 60 
+        /// </summary>
+        /// <param name="list"></param>
+        public void SkipRecordBelow60(List<PersonModel> list)
+        {
+            if (list.Count > 0)
+            {
+                Console.WriteLine(".........Skip record age below 60...........");
+                List<PersonModel> tempDeleteList = new List<PersonModel>();
+                var data = list.Where(x => x.Age < 60);
+                foreach (var age in data)
+                {
+                    tempDeleteList.Add(age);
+                }
+                foreach(PersonModel temp in tempDeleteList)
+                {
+                    list.Remove(temp);
+                }
+                Console.WriteLine(".........Record skip successfully from list.........");
+            }
+            else
+                Console.WriteLine(".............Record is empty.............");
+        }
+        /// <summary>
         /// Show data of all person
         /// </summary>
         /// <param name="list"></param>

@@ -10,7 +10,7 @@ namespace ConsoleApp1
             //Variables
             int userChoice;
             //Constants
-            const int ADD_PERSON_DATA = 1, EXIT = 0,TOP_TWO_RECORDS=2,AGE_BETWEEN13TO18=3,AVERAGE_AGE=4, CHECK_NAME=5,SHOW_ALL_DATA = 8;
+            const int ADD_PERSON_DATA = 1, EXIT = 0,TOP_TWO_RECORDS=2,AGE_BETWEEN13TO18=3,AVERAGE_AGE=4, CHECK_NAME=5,SKIP_RECORD=6,SHOW_ALL_DATA = 8;
             List<PersonModel> list = new List<PersonModel>();
             while (true)
             {
@@ -20,6 +20,7 @@ namespace ConsoleApp1
                 Console.WriteLine("Press 3 : All Record for age between 13 to 18");
                 Console.WriteLine("Press 4 : Retrive Average age");
                 Console.WriteLine("Press 5 : Check name present or not in list");
+                Console.WriteLine("Press 6 : Skip record from list for age below 60");
                 Console.WriteLine("Press 8 : Show all person data");
                 Console.WriteLine("Press 0 : To Exit");
                 Console.WriteLine("................................................");
@@ -52,6 +53,10 @@ namespace ConsoleApp1
                     case CHECK_NAME:
                         DataManagement checkNamePresent = new DataManagement();
                         checkNamePresent.CheckNamePresent(list);
+                        break;
+                    case SKIP_RECORD:
+                        DataManagement skipRecord = new DataManagement();
+                        skipRecord.SkipRecordBelow60(list);
                         break;
                     default:
                         Console.WriteLine("Enter a right choice");
