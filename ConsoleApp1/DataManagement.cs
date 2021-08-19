@@ -56,7 +56,7 @@ namespace ConsoleApp1
         {
             if (list.Count > 0)
             {
-                var data = list.Where(x => x.Age > 13 || x.Age < 18).Take(2);
+                var data = list.Where(x => x.Age > 13 && x.Age < 18);
                 Console.WriteLine("..........Record age between 13 to 18.........");
                 foreach (var persondata in data)
                 {
@@ -86,6 +86,26 @@ namespace ConsoleApp1
                 }
                 Console.WriteLine("..........Average Age.........");
                 Console.WriteLine("Average Age :"+totalAge / list.Count);
+            }
+            else
+                Console.WriteLine(".............Record is empty.............");
+        }
+        /// <summary>
+        /// Check specific name present in list or not 
+        /// </summary>
+        /// <param name="list"></param>
+        public void CheckNamePresent(List<PersonModel> list)
+        {
+            if (list.Count > 0)
+            {
+                Console.WriteLine("...........Check Name Present or not ...........");
+                Console.WriteLine("Enter a person Name");
+                string namePerson = Console.ReadLine();
+                var data = list.Where(x => x.Name.Equals(namePerson));
+                if (data.ToList().Count > 0)
+                    Console.WriteLine(namePerson + " : is present in list");
+                else
+                    Console.WriteLine(namePerson + " : is not present in list");
             }
             else
                 Console.WriteLine(".............Record is empty.............");
