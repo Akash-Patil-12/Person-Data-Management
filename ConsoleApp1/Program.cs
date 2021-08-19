@@ -10,12 +10,13 @@ namespace ConsoleApp1
             //Variables
             int userChoice;
             //Constants
-            const int ADD_PERSON_DATA = 1, EXIT = 0, SHOW_ALL_DATA = 8;
+            const int ADD_PERSON_DATA = 1, EXIT = 0,TOP_TWO_RECORDS=2, SHOW_ALL_DATA = 8;
             List<PersonModel> list = new List<PersonModel>();
             while (true)
             {
-                Console.WriteLine("................................................");
+                Console.WriteLine("........................Main Menu........................");
                 Console.WriteLine("Press 1 : Add new person data");
+                Console.WriteLine("Press 2 : Retrive top 2 records from list age below 60");
                 Console.WriteLine("Press 8 : Show all person data");
                 Console.WriteLine("Press 0 : To Exit");
                 Console.WriteLine("................................................");
@@ -28,6 +29,10 @@ namespace ConsoleApp1
                     case ADD_PERSON_DATA:
                         DataManagement dataManagement = new DataManagement();
                         dataManagement.AddPersonData(list);
+                        break;
+                    case TOP_TWO_RECORDS:
+                        DataManagement topRecord = new DataManagement();
+                        topRecord.TopTwoRecordsBelowAge(list);
                         break;
                     case SHOW_ALL_DATA:
                         DataManagement showAllData = new DataManagement();

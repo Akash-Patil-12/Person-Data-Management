@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ConsoleApp1
@@ -24,6 +25,24 @@ namespace ConsoleApp1
             personModel.Age = Convert.ToInt16(Console.ReadLine());
             list.Add(personModel);
             Console.WriteLine("............Record Inserted............");
+        }
+        public void TopTwoRecordsBelowAge(List<PersonModel> list)
+        {
+            if (list.Count > 0)
+            {
+                var data = list.Where(x => x.Age < 60).Take(2);
+                Console.WriteLine("..........Top 2 Record Age below 60.........");
+                foreach(var persondata in data)
+                {
+                    Console.WriteLine("SSN :" + persondata.SSN);
+                    Console.WriteLine("Name :" + persondata.Name);
+                    Console.WriteLine("Address :" + persondata.Address);
+                    Console.WriteLine("Age :" + persondata.Age);
+                    Console.WriteLine("...........................");
+                }
+            }
+            else
+                Console.WriteLine(".............Record is empty.............");
         }
         /// <summary>
         /// Show data of all person
